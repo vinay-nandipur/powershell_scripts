@@ -7,7 +7,10 @@ $os_name = & {Write-Host -NoNewline $os_name} 6>&1
 
 # Install MSRCSecurityUpdates Module
 
-Install-Module MSRCSecurityUpdates -Confirm:$False -Force
+if(-not {Get-Module MsrcSecurityUpdates})
+ {
+     Install-Module MSRCSecurityUpdates -Confirm:$False -Force
+ }
 
 # Import MSRCSecurityUpdates Module
 
